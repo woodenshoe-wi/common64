@@ -1,0 +1,104 @@
+#w469 fallbacks when looking for pet pkgs (space-separated list)...
+FALLBACKS_COMPAT_VERSIONS='14.0'
+
+#PKGS_SPECS_TABLE table format:
+#will pkg be in puppy-build.
+#    Generic name for pkg. Note: PET packages, if exist, use this name.
+#            Comma-separated list of compatible-distro pkg(s). '-' prefix, exclude.
+#            Must be exact name-only of pkg, else '*' on end is wildcard to search full name.
+#            Empty field, then use PET pkg.
+#                                    How the package will get split up in woof (optional redirection '>' operator).
+#                                    Missing field, it goes into exe. Can also redirect >null, means dump it.
+#yes|abiword|iceword,iceword-plugins|exe,dev,doc,nls
+
+#example showing wildcard. finds all full pkg names with 'gcc-4.3*',
+#but, exclude any 'gcc-4.3-doc*' matches...
+#yes|gcc|gcc,gcc-4.3*,-gcc-4.3-doc*|exe,dev,doc,nls
+
+PKGS_SPECS_TABLE='
+yes|acl|acl|exe,dev,doc,nls
+yes|atk|atk|exe,dev,doc,nls
+yes|attr|attr|exe,dev,doc,nls
+yes|autoconf|autoconf|exe>dev,dev,doc,nls
+yes|automake|automake|exe>dev,dev,doc,nls
+yes|bash|bash|exe,dev,doc,nls
+yes|binutils|binutils|exe>dev,dev,doc,nls
+yes|busybox||exe,dev>null,doc,nls
+yes|bzip2|bzip2|exe,dev,doc,nls
+yes|cairo|cairo|exe,dev,doc,nls
+no|cmake||exe>dev,dev,doc,nls
+yes|coreutils|coreutils|exe,dev>null,doc,nls
+yes|cpio|cpio|exe,dev>null,doc,nls
+no|cvs|cvs|exe>dev,dev,doc,nls
+yes|dejavu_fonts|dejavu-fonts-ttf|exe,dev,doc,nls
+yes|e2fsprogs|e2fsprogs|exe,dev,doc,nls| #util-linux-ng has libuuid,libblkid replacing those in e2fsprogs...
+yes|expat|expat|exe,dev,doc,nls
+yes|file|file|exe,dev,doc,nls
+yes|findutils|findutils|exe,dev>null,doc,nls
+yes|freetype|freetype|exe,dev,doc,nls
+yes|fuse|fuse|exe,dev,doc>null,nls
+yes|gawk|gawk|exe,dev,doc,nls
+yes|gcc_dev|gcc,gcc-g++,gmp,libelf,libmpc,mpfr|exe>dev,dev,doc,nls
+yes|gcc_lib|gcc,gcc-g++|exe,dev>null,doc>null,nls>null
+yes|gdbm|gdbm|exe,dev,doc,nls
+yes|gdk-pixbuf2|gdk-pixbuf2|exe,dev,doc,nls
+yes|gettext|gettext|exe,dev>null,doc>null,nls>null
+yes|gettext-tools|gettext-tools|exe>dev,dev,doc,nls
+yes|git|git|exe>dev,dev,doc>dev,nls>dev
+yes|glib|glib2|exe,dev,doc,nls
+yes|glibc|glibc,glibc-solibs,glibc-zoneinfo|exe,dev,doc,nls
+yes|gmp|gmp|exe,dev,doc,nls
+yes|gperf|gperf|exe>dev,dev,doc,nls
+yes|grep|grep|exe,dev>null,doc,nls
+yes|gtk+|gtk+2,libffi|exe,dev,doc,nls
+yes|gtkdialog||exe,dev,doc>dev,nls
+yes|gzip|gzip|exe,dev>null,doc,nls
+yes|installwatch||exe
+yes|intltool|intltool|exe>dev,dev,doc,nls
+yes|kernel_headers|kernel_headers-3.13.1-slacko64*|exe>dev,dev,doc,nls|pet:slacko6414 #change to suit
+yes|leafpad||exe,nls
+yes|less|less|exe,dev>null,doc,nls
+yes|libcap|libcap|exe,dev,doc,nls
+yes|libglade2|libglade|exe,dev,doc,nls
+yes|libjpeg|libjpeg|exe,dev,doc,nls
+yes|libpng|libpng|exe,dev,doc,nls
+yes|libpthread-stubs|libpthread-stubs|exe>dev,dev,doc,nls
+yes|libtermcap|libtermcap|exe,dev,doc,nls
+yes|libtiff|libtiff|exe,dev,doc,nls
+yes|libtool|libtool|exe>dev,dev,doc,nls
+yes|libusb1|libusb|exe,dev,doc,nls
+yes|libusb-compat|libusb-compat|exe,dev,doc,nls
+yes|libxcb_base|libxcb|exe,dev,doc,nls
+yes|libxml2|libxml2|exe,dev,doc,nls
+yes|lzo|lzo|exe,dev,doc,nls
+yes|m4|m4|exe>dev,dev,doc,nls
+yes|make|make|exe>dev,dev,doc,nls
+yes|man|man|exe>dev,dev,doc,nls
+yes|mingetty||exe,dev,doc,nls
+yes|mpfr|mpfr|exe>dev,dev,doc,nls
+yes|ncurses|ncurses|exe,dev,doc,nls
+yes|pango|pango|exe,dev,doc,nls
+yes|patch|patch|exe>dev,dev,doc,nls
+yes|pciutils|pciutils|exe,dev,doc,nls
+yes|pcre|pcre|exe,dev,doc,nls
+yes|perl|perl|exe>dev,dev,doc,nls
+yes|pixman|pixman|exe,dev,doc,nls
+yes|pkgconfig|pkg-config|exe>dev,dev,doc,nls
+yes|popt|popt|exe,dev,doc,nls
+yes|readline|readline|exe,dev,doc,nls
+yes|sed|sed|exe,dev>null,doc,nls
+yes|sqlite|sqlite|exe,dev,doc,nls
+yes|squashfs-tools4||exe
+no|subversion||exe>dev,dev,doc,nls
+yes|tar|tar|exe,dev>null,doc,nls| #slackware tar 1.23 slightly broken, use my pet 1.22... no using 1.26
+yes|texinfo|texinfo|exe>dev,dev,doc,nls
+yes|truncate||exe,dev,doc,nls
+#yes|udev|udev|exe,dev,doc,nls # too old for f3 and eudev
+yes|util-linux||exe,dev,doc,nls
+yes|vte|vte|exe,dev,doc,nls
+yes|x11proto|dri2proto,xcmiscproto,compositeproto,xf86miscproto,fontsproto,printproto,renderproto,xf86dgaproto,xproto,dmxproto,glproto,xcb-proto,xf86bigfontproto,bigreqsproto,randrproto,xf86vidmodeproto,resourceproto,xineramaproto,scrnsaverproto,fontcacheproto,kbproto,videoproto,fixesproto,inputproto,xextproto,xf86driproto,damageproto,recordproto|exe>dev,dev,doc,nls
+yes|xorg_base|appres,bdftopcf,bitmap,editres,evieext,fontconfig,fonttosfnt,fslsfonts,fstobdf,iceauth,libdmx,libfontenc,libFS,libICE,libSM,libX11,libXau,libXaw,libXcomposite,libXcursor,libXdamage,libXdmcp,libXevie,libXext,libXfixes,libXfont,libXfontcache,libXft,libXi,libXinerama,libxkbfile,libXmu,libXp,libXpm,libXrandr,libXrender,libXres,libXScrnSaver,libXt,libXtst,libXv,libXvMC,libXxf86dga,libXxf86misc,libXxf86vm,listres,luit,makedepend,mkcomposecache,mkfontdir,mkfontscale,mtdev,rendercheck,sessreg,setxkbmap,showfont,smproxy,viewres,x11perf,xauth,xbacklight,xbiff,xcalc,xclipboard,xclock,xconsole,xcursorgen,xditview,xdpyinfo,xdriinfo,xev,xf86dga,xfontsel,xgamma,xhost,xinit,xkbcomp,xkbutils,xkill,xload,xmag,xmessage,xmodmap,xprop,xrandr,xrdb,xrefresh,xset,xsetroot,xsm,xstdcmap,xvidtune,xvinfo,xwd,xwininfo,libdrm|exe,dev,doc,nls
+yes|xz|xz|exe,dev,doc,nls
+yes|zip|infozip|exe,dev>null,doc,nls
+yes|zlib|zlib|exe,dev,doc,nls
+'
