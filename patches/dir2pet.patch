@@ -1,10 +1,10 @@
---- rootfs-skeleton/usr/bin/dir2pet	2017-12-14 15:35:42.476076126 -0600
-+++ ../../woof-out_x86_64_x86_64_slackware64_common64/rootfs-skeleton/usr/bin/dir2pet	2018-03-12 12:09:45.678642603 -0500
-@@ -476,6 +476,7 @@
-     case "${BASEPKG}" in *"_DEV"*) ARCHINDEPENDENT='no' ;; esac
-     [ "`find $DIRPKG/$BASEPKG -maxdepth 6 -type f -name '*.a' -o -type f -name 'lib*.so*' -o -type f -name '*.la'`" != "" ] && ARCHINDEPENDENT='no'
-     [ "$ARCHINDEPENDENT" = "no" ] && COMPAT=$DISTRO_BINARY_COMPAT V=$DISTRO_COMPAT_VERSION
-+    [ "${DISTRO_DB_SUBNAME#common}" != "${DISTRO_DB_SUBNAME}" ] && COMPAT=$DISTRO_DB_SUBNAME V=""
+--- rootfs-skeleton/usr/bin/dir2pet	2018-04-26 12:31:46.411880389 -0500
++++ ../../woof-out_x86_64_x86_64_slackware64_common64/rootfs-skeleton/usr/bin/dir2pet	2018-04-26 21:35:43.062224142 -0500
+@@ -494,6 +494,7 @@
+ 			COMPAT=$DISTRO_BINARY_COMPAT
+ 			V=$DISTRO_COMPAT_VERSION
+ 		fi
++		[ "${DISTRO_DB_SUBNAME#common}" != "${DISTRO_DB_SUBNAME}" ] && COMPAT=$DISTRO_DB_SUBNAME V=""
+ 	fi
+ 	#echo $COMPAT ; echo $V ; exit #debug
      echo "$BASEPKG|${NAMEONLY}|$VERSION||$TOPCAT|$SIZEK||${BASEPKG}.pet|$deps|$PUPMENUDESCR|$COMPAT|$V||" > /tmp/petspec_db_entry
- fi
- 

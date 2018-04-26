@@ -10,7 +10,8 @@
 PKG_DOCS_PET_REPOS="
 z|http://distro.ibiblio.org/puppylinux/Packages-puppy-${DISTRO_DB_SUBNAME}-official|z
 z|http://distro.ibiblio.org/puppylinux/Packages-puppy-slacko6414-official|z
-z|http://distro.ibiblio.org/puppylinux/Packages-puppy-noarch-official|z
+z|https://raw.githubusercontent.com/puppylinux-woof-CE/woof-CE/testing/woof-distro/Packages-puppy-noarch-official|z
+z|https://gitlab.com/woodenshoe-wi/petbuilds-out/raw/master/puppylinux/Packages-puppy-common64-woodenshoe|z
 "
 
 PKGS_DOCS_PET_REPOS_LOCAL_ONLY="Packages-puppy-${DISTRO_DB_SUBNAME}-official"
@@ -35,6 +36,7 @@ z|ftp://ftp.vcu.edu/pub/gnu+linux/puppylinux|Packages-puppy-*-official
 z|http://ftp.cc.uoc.gr/mirrors/linux/puppylinux|Packages-puppy-*-official
 z|http://mirror.aarnet.edu.au/pub/puppylinux|Packages-puppy-*-official
 z|http://mirror.internode.on.net/pub/puppylinux|Packages-puppy-*-official
+z|https://gitlab.com/woodenshoe-wi/petbuilds-out/raw/master/puppylinux|Packages-puppy-*-woodenshoe
 '
 
 #----------------------
@@ -47,6 +49,7 @@ PACKAGELISTS_PET_ORDER="
 Packages-puppy-${DISTRO_DB_SUBNAME}-official
 Packages-puppy-slacko6414-official
 Packages-puppy-noarch-official
+Packages-puppy-common64-woodenshoe
 "
 
 

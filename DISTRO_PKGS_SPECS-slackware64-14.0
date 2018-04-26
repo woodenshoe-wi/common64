@@ -87,6 +87,8 @@ yes|pkgconfig|pkg-config|exe>dev,dev,doc,nls
 yes|popt|popt|exe,dev,doc,nls
 yes|readline|readline|exe,dev,doc,nls
 yes|sed|sed|exe,dev>null,doc,nls
+yes|shared-mime-info||exe,dev,doc,nls|pet:woodenshoe
+yes|smake||exe>dev,dev,doc,nls|pet:woodenshoe
 yes|sqlite|sqlite|exe,dev,doc,nls
 yes|squashfs-tools4||exe
 no|subversion||exe>dev,dev,doc,nls
