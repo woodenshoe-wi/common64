@@ -17,6 +17,7 @@ FALLBACKS_COMPAT_VERSIONS='14.0'
 
 PKGS_SPECS_TABLE='
 yes|acl|acl|exe,dev,doc,nls
+yes|alsa-lib|alsa-lib|exe,dev,doc,nls
 yes|atk|atk|exe,dev,doc,nls
 yes|attr|attr|exe,dev,doc,nls
 yes|autoconf|autoconf|exe>dev,dev,doc,nls
@@ -26,7 +27,7 @@ yes|binutils|binutils|exe>dev,dev,doc,nls
 yes|busybox||exe,dev>null,doc,nls
 yes|bzip2|bzip2|exe,dev,doc,nls
 yes|cairo|cairo|exe,dev,doc,nls
-no|cmake||exe>dev,dev,doc,nls
+yes|cmake||exe>dev,dev,doc,nls|pet:woodenshoe
 yes|coreutils|coreutils|exe,dev>null,doc,nls
 yes|cpio|cpio|exe,dev>null,doc,nls
 no|cvs|cvs|exe>dev,dev,doc,nls
@@ -92,6 +93,7 @@ yes|smake||exe>dev,dev,doc,nls|pet:woodenshoe
 yes|sqlite|sqlite|exe,dev,doc,nls
 yes|squashfs-tools4||exe
 no|subversion||exe>dev,dev,doc,nls
+yes|syslinux|syslinux|exe,dev,doc,nls # woof-CE mk_iso.sh needs this...
 yes|tar|tar|exe,dev>null,doc,nls| #slackware tar 1.23 slightly broken, use my pet 1.22... no using 1.26
 yes|texinfo|texinfo|exe>dev,dev,doc,nls
 yes|truncate||exe,dev,doc,nls
